@@ -22,8 +22,16 @@ X_train, X_test,y_train,y_test = train_test_split(X,y,test_size=.2)
 
 
 
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
 
-print(y)
+print(X_train.shape)
+
+model = Sequential()
+model.add(Dense(output_dim = 64, input_dim=31, activation='relu'))
+model.add(Dense(output_dim = 64, activation='relu'))
+model.add(Dense(output_dim = 64, activation='relu'))
+model.add(Dense(output_dim = 64, activation='relu'))
+
+model.add(Dense(output_dim = 1, activation='sigmoid'))
+
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+model.fit(X_train,y_train, validation_data=(X_test, y_test), batch_size=10, epochs=20)
