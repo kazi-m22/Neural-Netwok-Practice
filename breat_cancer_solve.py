@@ -39,3 +39,6 @@ classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'si
 
 classifier.compile(optimizer = 'rmsprop', loss = 'binary_crossentropy', metrics = ['accuracy'])
 classifier.fit(X_train, y_train, batch_size = 1, epochs = 100)
+
+data_1 = X_test[9,:]
+classifier.predict(np.array([X_test[89,:],]))
