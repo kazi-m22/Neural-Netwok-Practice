@@ -35,6 +35,8 @@ classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'tanh'))
 classifier.add(Dense(output_dim = 1, init = 'uniform', activation='sigmoid'))
 
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+classifier.summary()
 classifier.fit(X_train, y_train, batch_size = 10, nb_epoch = 20)
 
 y_pred = classifier.predict(X_test)
